@@ -1,0 +1,7 @@
+description "Consul Template webapp-nginx plugin outer template"
+start on started consul
+stop on runlevel [06]
+
+exec %CONSUL_TEMPLATE_EXEC% -template "%TEMPLATE_DIR%/consul-template-webapp-nginx-1.upstart.ctmpl:/etc/init/consul-template-webapp-nginx-1.conf:service consul-template-webapp-nginx-1 restart"
+
+respawn

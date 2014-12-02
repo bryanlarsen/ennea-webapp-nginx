@@ -1,0 +1,13 @@
+description "Consul Template webapp-nginx plugin inner template"
+start on started consul
+stop on runlevel [06]
+
+pre-start script
+{{ range ls "webapp" }}
+sed -e "s!%SERVICE%!{{ .Key }}!g" -e "s!%ID%!{{ .Value }}!g" -e "s!%HOSTNAME%!$(hostname)!g" < "%TEMPLATE_DIR%/webapp-nginx.outer-ctmpl" > "%TEMPLATE_DIR%/{{ .Key }}.nginx.ctmpl"
+{{ end }}
+end script
+
+exec %CONSUL_TEMPLATE_EXEC% {{ range ls "webapp" }} -template "%TEMPLATE_DIR%/{{ .Key }}.nginx.ctmpl:%NGINX_SITES_DIR%/{{ .Key }}.conf:service nginx reload" {{ end }}
+
+respawn
