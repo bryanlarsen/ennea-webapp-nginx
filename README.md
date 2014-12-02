@@ -11,7 +11,7 @@ This is a component of [EnneaHost](https://github.com/bryanlarsen/enneahost), bu
 
 - Create a key in Consul named "webapp/<service-name>".  The value can be anything, it's currently not used.
 
-- Ennea-webapp-nginx will create an nginx configuration file /etc/nginx/sites-enabled/<service-name>.conf to proxy the service and reload nginx.
+- Ennea-webapp-nginx will create an nginx configuration file `/etc/nginx/sites-enabled/<service-name>.conf` to proxy the service and reload nginx.
 
 # Configuration
 
