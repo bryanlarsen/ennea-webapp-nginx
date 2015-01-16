@@ -7,9 +7,9 @@ Automatically create nginx site configuration files based on consul service avai
 
 - Register your service in the consul service catalog.  We recommend [registrator](https://progrium/registrator) to do this automatically.
 
-- Create a key in Consul named "webapp/<service-name>".  The value can be anything, it's currently not used.
+- Create a key in Consul named `webapp/<service-name>`.  The value can be anything, it's currently not used.
 
-- Ennea-webapp-nginx will create an nginx configuration file /etc/nginx/sites-enabled/<service-name>.conf to proxy the service and reload nginx.
+- Ennea-webapp-nginx will create an nginx configuration file `/etc/nginx/sites-enabled/<service-name>.conf` to proxy the service and reload nginx.
 
 # Configuration
 
