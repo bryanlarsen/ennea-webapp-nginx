@@ -3,6 +3,8 @@ ennea-webapp-nginx
 
 Automatically create nginx site configuration files based on consul service availability
 
+This is a component of [EnneaHost](https://github.com/bryanlarsen/enneahost), but was designed to be independently useful
+
 # Usage
 
 - Register your service in the consul service catalog.  We recommend [registrator](https://progrium/registrator) to do this automatically.
@@ -36,4 +38,6 @@ Run `install.sh` as root.   There are two configuration variables that you can p
 - `CONSUL_TEMPLATE_EXEC`: default `$(which consul-template) -consul consul.service.consul:8500`.  consul-template invocation
 - `NGINX_SITES_DIR`: default `/etc/nginx/sites-enabled`
 
-     $ sudo TEMPLATE_DIR=/var/ennea-templates ./install.sh
+```
+$ sudo TEMPLATE_DIR=/var/ennea-templates ./install.sh
+```
