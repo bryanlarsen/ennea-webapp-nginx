@@ -9,6 +9,9 @@ server {
 
 {{ if key "%SERVICE%/public" }}
   root {{ key "%SERVICE%/public" }};
+  try_files $uri/index.html $uri @%SERVICE%;
+{{ else }}
+  try_files /dev/null @%SERVICE%;
 {{ end }}
 
   location @%SERVICE% {
@@ -20,6 +23,5 @@ server {
 
   error_page 500 502 503 504 /500.html;
 
-  try_files $uri/index.html $uri @%SERVICE%;
 }
 
